@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全球时圳 - Digital Clock</title>
+    <link rel="stylesheet" href="clock-styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🕐 全球时圳</h1>
+            <p>实时时区互转</p>
+        </header>
+
+        <!-- Main Clock -->
+        <section class="main-clock-section">
+            <div class="main-clock">
+                <div class="digital-display">
+                    <span id="mainTime">00:00:00</span>
+                    <span id="mainPeriod">AM</span>
+                </div>
+                <div class="location-info">
+                    <p id="mainLocation">Beijing Time</p>
+                    <p id="mainDate">Loading...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Time Zone Selector -->
+        <section class="selector-section">
+            <h2>选择时区</h2>
+            <div class="timezone-selector">
+                <select id="timezoneSelect">
+                    <optgroup label="亚洲">
+                        <option value="Asia/Shanghai" selected>中国【上海】</option>
+                        <option value="Asia/Hong_Kong">香港</option>
+                        <option value="Asia/Tokyo">日本【东京】</option>
+                        <option value="Asia/Seoul">韩国【首尔】</option>
+                        <option value="Asia/Bangkok">泰国【曼谷】</option>
+                        <option value="Asia/Singapore">新加坡</option>
+                        <option value="Asia/Dubai">中东【迪拜】</option>
+                        <option value="Asia/Kolkata">印度【新德里】</option>
+                        <option value="Asia/Jakarta">印尼【雅加达】</option>
+                        <option value="Asia/Manila">菲律宾【马尼拉】</option>
+                    </optgroup>
+                    <optgroup label="欧洲">
+                        <option value="Europe/London">英国【伦敦】</option>
+                        <option value="Europe/Paris">法国【巴黎】</option>
+                        <option value="Europe/Berlin">德国【柏林】</option>
+                        <option value="Europe/Moscow">俄罗斯【莫斯科】</option>
+                        <option value="Europe/Athens">希腊【雅典】</option>
+                        <option value="Europe/Amsterdam">荷兰</option>
+                    </optgroup>
+                    <optgroup label="洋洲">
+                        <option value="America/New_York">美国【纽约】</option>
+                        <option value="America/Los_Angeles">美国【洛杉矶】</option>
+                        <option value="America/Chicago">美国【芝加哥】</option>
+                        <option value="America/Denver">美国【丹佛】</option>
+                        <option value="America/Anchorage">美国【阿提结客】</option>
+                        <option value="Pacific/Honolulu">东夫德【夏威夷】</option>
+                        <option value="America/Toronto">加拿大【多伦多】</option>
+                        <option value="America/Mexico_City">墨西哥【墨西哥城】</option>
+                        <option value="America/Sao_Paulo">巴西【圣保罗】</option>
+                    </optgroup>
+                    <optgroup label="大洋洲">
+                        <option value="Australia/Sydney">澳大利亚【悉尼】</option>
+                        <option value="Australia/Melbourne">澳大利亚【墨尔本】</option>
+                        <option value="Pacific/Auckland">新西兰【奇正湾】</option>
+                        <option value="Pacific/Fiji">斐济</option>
+                    </optgroup>
+                    <optgroup label="非洲">
+                        <option value="Africa/Cairo">埃及【开罗】</option>
+                        <option value="Africa/Johannesburg">南非【深体】</option>
+                        <option value="Africa/Lagos">尼日利亚【拉各斯】</option>
+                    </optgroup>
+                </select>
+                <button id="addTimezoneBtn" class="add-timezone-btn">添加上表板</button>
+            </div>
+        </section>
+
+        <!-- Clock Grid -->
+        <section class="clocks-grid" id="clocksGrid">
+            <!-- Clocks will be added here dynamically -->
+        </section>
+
+        <!-- Advertisement Banner -->
+        <section class="ad-banner">
+            <span class="ad-label">广告位</span>
+            <p>您的品牌广告 - 更多会员享受需求</p>
+        </section>
+
+        <!-- Settings Panel -->
+        <section class="settings-panel">
+            <h2>设置</h2>
+            <div class="settings-group">
+                <label>
+                    <input type="checkbox" id="format24" checked>
+                    24小时制
+                </label>
+                <label>
+                    <input type="checkbox" id="showSeconds" checked>
+                    显示秒数
+                </label>
+                <label>
+                    <input type="checkbox" id="darkMode" checked>
+                    深色模式
+                </label>
+                <button id="resetBtn" class="reset-btn">重置所有</button>
+            </div>
+        </section>
+    </div>
+
+    <script src="clock-script.js"></script>
+</body>
+</html>
