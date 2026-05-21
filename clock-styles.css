@@ -1,0 +1,484 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-dark: #0a0e27;
+    --secondary-dark: #1a1f3a;
+    --accent-color: #00d4ff;
+    --accent-warm: #ff6b35;
+    --text-light: #e0e6ed;
+    --text-muted: #9ca3af;
+    --border-color: #2d3748;
+    --success: #10b981;
+}
+
+body {
+    font-family: 'Courier New', 'Segoe UI', monospace;
+    background: linear-gradient(135deg, var(--primary-dark) 0%, #1a0033 100%);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 2rem 0;
+}
+
+body.light-mode {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+    --primary-dark: #ffffff;
+    --secondary-dark: #f0f4f8;
+    --text-light: #1a1f3a;
+    --text-muted: #666666;
+    --border-color: #d0d8e0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s ease;
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-warm));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+}
+
+.header p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+}
+
+/* Main Clock Section */
+.main-clock-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease 0.1s backwards;
+}
+
+.main-clock {
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, rgba(26, 31, 58, 0.5) 100%);
+    border: 2px solid var(--accent-color);
+    border-radius: 20px;
+    padding: 3rem 5rem;
+    box-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-clock::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+}
+
+.digital-display {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+#mainTime {
+    font-size: 5rem;
+    font-weight: 900;
+    color: var(--accent-color);
+    text-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+    font-family: 'Courier New', monospace;
+    letter-spacing: 3px;
+}
+
+#mainPeriod {
+    font-size: 1.5rem;
+    color: var(--accent-warm);
+    font-weight: 700;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+}
+
+.location-info {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.location-info p {
+    margin: 0.3rem 0;
+    font-size: 1rem;
+}
+
+#mainLocation {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+#mainDate {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+/* Selector Section */
+.selector-section {
+    margin-bottom: 3rem;
+    animation: fadeInUp 0.8s ease 0.2s backwards;
+}
+
+.selector-section h2 {
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.timezone-selector {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+#timezoneSelect {
+    flex: 1;
+    min-width: 250px;
+    padding: 1rem;
+    background: var(--secondary-dark);
+    color: var(--text-light);
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#timezoneSelect:hover,
+#timezoneSelect:focus {
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.2);
+    outline: none;
+}
+
+.add-timezone-btn {
+    padding: 1rem 2rem;
+    background: linear-gradient(135deg, var(--accent-color), #00b8cc);
+    color: var(--primary-dark);
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.add-timezone-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+}
+
+/* Clocks Grid */
+.clocks-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+    animation: fadeIn 0.8s ease 0.3s backwards;
+}
+
+.clock-card {
+    background: linear-gradient(135deg, var(--secondary-dark) 0%, rgba(26, 31, 58, 0.5) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    animation: slideUp 0.5s ease;
+}
+
+.clock-card:hover {
+    border-color: var(--accent-color);
+    box-shadow: 0 10px 30px rgba(0, 212, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.clock-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent-color), var(--accent-warm));
+    transform: scaleX(0);
+    transform-origin: left;
+    animation: expandWidth 0.5s ease forwards;
+}
+
+.clock-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.clock-card-location {
+    flex: 1;
+}
+
+.clock-card-location h3 {
+    color: var(--accent-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.clock-card-date {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.remove-clock {
+    background: var(--accent-warm);
+    color: white;
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-clock:hover {
+    background: #ff5222;
+    transform: scale(1.1);
+}
+
+.clock-card-time {
+    font-size: 2.5rem;
+    font-family: 'Courier New', monospace;
+    color: var(--accent-color);
+    text-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+    margin-bottom: 1rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.clock-card-utc {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Advertisement Banner */
+.ad-banner {
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 107, 53, 0.1));
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.ad-label {
+    display: inline-block;
+    background: var(--accent-color);
+    color: var(--primary-dark);
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.ad-banner p {
+    color: var(--text-muted);
+    font-size: 1rem;
+}
+
+/* Settings Panel */
+.settings-panel {
+    background: var(--secondary-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+    padding: 2rem;
+    animation: fadeInUp 0.8s ease 0.4s backwards;
+}
+
+.settings-panel h2 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.settings-group {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.settings-group label {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.settings-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--accent-color);
+}
+
+.reset-btn {
+    padding: 0.8rem 1.5rem;
+    background: var(--accent-warm);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.reset-btn:hover {
+    background: #ff5222;
+    transform: scale(1.05);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 0.5;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes expandWidth {
+    to {
+        transform: scaleX(1);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    #mainTime {
+        font-size: 3rem;
+    }
+
+    .main-clock {
+        padding: 2rem 3rem;
+    }
+
+    .clocks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .timezone-selector {
+        flex-direction: column;
+    }
+
+    #timezoneSelect,
+    .add-timezone-btn {
+        width: 100%;
+    }
+
+    .settings-group {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 10px;
+    }
+
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    #mainTime {
+        font-size: 2rem;
+    }
+
+    .main-clock {
+        padding: 1.5rem 2rem;
+    }
+
+    .clock-card-time {
+        font-size: 1.8rem;
+    }
+}
