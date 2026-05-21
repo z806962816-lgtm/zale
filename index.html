@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZALE - 高端轮毂商城</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">ZALE</div>
+            <div class="nav-links">
+                <a href="#" class="nav-link">首页</a>
+                <a href="#" class="nav-link">产品</a>
+                <a href="#" class="nav-link">品牌</a>
+                <a href="#" class="nav-link">联系</a>
+            </div>
+            <div class="nav-icons">
+                <div class="search-icon">🔍</div>
+                <div class="cart-icon">🛒 <span class="cart-count">0</span></div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>极速激情</h1>
+            <p>全车系适配 · 高端轮毂</p>
+            <button class="cta-button">立即探索</button>
+        </div>
+        <div class="hero-bg"></div>
+    </section>
+
+    <!-- Advertisement Banner 1 -->
+    <section class="ad-banner ad-banner-1">
+        <div class="ad-content">
+            <span class="ad-label">赞助商广告</span>
+            <p>您的品牌广告位 - 高转化率展示</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filters">
+        <div class="container">
+            <h2>轮毂筛选</h2>
+            <div class="filter-group">
+                <div class="filter-item">
+                    <label>车型系列</label>
+                    <select id="carSeriesFilter">
+                        <option value="">全部车型</option>
+                        <option value="sedan">轿车系列</option>
+                        <option value="suv">SUV系列</option>
+                        <option value="truck">越野系列</option>
+                        <option value="sport">跑车系列</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label>轮毂尺寸</label>
+                    <select id="sizeFilter">
+                        <option value="">全部尺寸</option>
+                        <option value="17">17英寸</option>
+                        <option value="18">18英寸</option>
+                        <option value="19">19英寸</option>
+                        <option value="20">20英寸</option>
+                        <option value="21">21英寸</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label>价格范围</label>
+                    <select id="priceFilter">
+                        <option value="">全部价格</option>
+                        <option value="1000-2000">¥1000-¥2000</option>
+                        <option value="2000-3500">¥2000-¥3500</option>
+                        <option value="3500-5000">¥3500-¥5000</option>
+                        <option value="5000+">¥5000以上</option>
+                    </select>
+                </div>
+                <div class="filter-item">
+                    <label>风格</label>
+                    <select id="styleFilter">
+                        <option value="">全部风格</option>
+                        <option value="sport">运动风</option>
+                        <option value="luxury">豪华风</option>
+                        <option value="classic">经典风</option>
+                        <option value="modern">现代风</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Advertisement Banner 2 -->
+    <section class="ad-banner ad-banner-2">
+        <div class="ad-content">
+            <span class="ad-label">合作伙伴</span>
+            <p>轮毂配件专业供应商推荐</p>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="products">
+        <div class="container">
+            <div class="products-grid" id="productsGrid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Advertisement Banner 3 -->
+    <section class="ad-banner ad-banner-3">
+        <div class="ad-content">
+            <span class="ad-label">特别推荐</span>
+            <p>限时优惠 - 立即购买享受折扣</p>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div class="cart-modal" id="cartModal">
+        <div class="cart-content">
+            <div class="cart-header">
+                <h2>购物车</h2>
+                <span class="close-cart">&times;</span>
+            </div>
+            <div class="cart-items" id="cartItems"></div>
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>小计：</span>
+                    <span id="subtotal">¥0</span>
+                </div>
+                <div class="summary-row">
+                    <span>运费：</span>
+                    <span id="shipping">¥0</span>
+                </div>
+                <div class="summary-row total">
+                    <span>总计：</span>
+                    <span id="total">¥0</span>
+                </div>
+                <button class="checkout-btn">结算</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-section">
+                <h4>关于ZALE</h4>
+                <p>致力于为全球车主提供高端、优质的轮毂产品与服务</p>
+            </div>
+            <div class="footer-section">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">产品目录</a></li>
+                    <li><a href="#">配件服务</a></li>
+                    <li><a href="#">技术支持</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>联系方式</h4>
+                <p>Email: support@zale.com</p>
+                <p>电话: 400-888-8888</p>
+            </div>
+            <div class="footer-section">
+                <h4>关注我们</h4>
+                <div class="social-links">
+                    <a href="#">微博</a>
+                    <a href="#">微信</a>
+                    <a href="#">抖音</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ZALE 轮毂商城. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
